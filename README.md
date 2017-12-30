@@ -1,6 +1,7 @@
-# Some algorithms and dataStructure implementation in Python and Julia
+# Some Algorithms and DataStructures<br>
 
-## Searching and Sorting
+# Includes
+1. Searching and Sorting
 
 ## Languages
 Some codes are written in Python3, Julia. Also on IPython Jupyter notebooks
