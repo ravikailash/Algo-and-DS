@@ -1,7 +1,5 @@
 '''Given a rotated sorted array, find the index of the pivot '''
-
 print(__doc__)
-
 
 def find_index(words, low=None, high=None):
     if low is None and high is None:
@@ -9,7 +7,7 @@ def find_index(words, low=None, high=None):
     if low > high:
         return 0
     if low == high:
-        return low
+        return lowP
 
     mid = (low + high) // 2
 
