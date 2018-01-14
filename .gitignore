@@ -1,0 +1,4 @@
+# Ignore all the OS Files
+.DS_Store*
+
+
