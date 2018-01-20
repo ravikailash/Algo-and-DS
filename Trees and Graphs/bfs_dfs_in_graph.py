@@ -1,7 +1,6 @@
 import random
 from make_graph import get_graph
 
-
 class Graph:
   def __init__(self):
   	self.vertices = set()
@@ -53,10 +52,9 @@ def dfs(g, v=None):
 
 def main():
   g = get_graph(9)
-  print(g.vertices)
-  print(bfs(g, 0))
-  print(dfs(g, 0))
+  print('Verices: ', g.vertices)
+  print("BFS: ", bfs(g, 0))
+  print("DFS: ", dfs(g, 0))
 
 if __name__ == '__main__':
   main()
-

@@ -2,7 +2,6 @@
 Find the distance between the two nodes in binary tree
 """
 
-
 class Tree:
     def __init__(self, node, left=None, right=None):
         self.node = node
@@ -26,13 +25,13 @@ def make_tree(index=0):
         return t
 
 
-def inorder_traversal(tree, path=None):
+def preorder_traversal(tree, path=None):
     if path is None:
         path = []
     if tree is not None:
-        inorder_traversal(tree.left, path)
+        preorder_traversal(tree.left, path)
         path.append(tree.node)
-        inorder_traversal(tree.right, path)
+        preorder_traversal(tree.right, path)
     return path
 
 
@@ -46,34 +45,28 @@ def find_distance(tree, nodes, path):
         r = find_distance(tree.right, nodes, path)
         path.pop()
 
-
 def get_distance(found, nodes):
-    distance = 0
     i = j = 0
-    while i < found[nodes[0]] and j < found[nodes[1]]:
+    while i < len(found[nodes[0]]) and j < len(found[nodes[1]]):
         if found[nodes[0]][i] == found[nodes[1]][j]:
             i += 1
             j += 1
-
         else:
             break
-
-
+    return len(found[nodes[0]][i:]) + len(found[nodes[1]][j:])
 
 def find_distance_between_nodes(tree, nodes):
     found = {node: False for node in nodes}
     find_distance(tree, found, [])
-    print(found)
+    # print(found)
     if any([True if found[node] is False else False for node in found]):
         return False
     return get_distance(found, nodes)
 
 tree = make_tree()
-print(inorder_traversal(tree))
+print('Preorder traversal: ', preorder_traversal(tree))
 
-
-# nodes = [(8, 11), (1, 2), (1, 4), (6, 15), (3, 15), (9, 13), (0, 5), (15, 19), (14, 13), (-3, -9)]
-nodes = [(2, 3), (4, 7), (3, 12)]
+nodes = [(8, 11), (1, 2), (2, 3), (4, 7), (3, 12), (1, 4), (6, 15), (3, 15), (9, 13), (0, 5), (15, 19), (14, 13), (-3, -9)]
 
 for node in nodes:
     print(node, '-', find_distance_between_nodes(tree, node))
